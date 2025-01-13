@@ -20,6 +20,11 @@ class DragonTreasure
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+     /**
+     * Undocumented variable
+     *
+     * @var integer|null
+     */
     private ?string $description = null;
 
     #[ORM\Column]
