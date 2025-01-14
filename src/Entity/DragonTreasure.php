@@ -7,7 +7,9 @@ use App\Repository\DragonTreasureRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ApiResource]
+#[ApiResource(
+    description : "A rare and valuable treasure."
+)]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 class DragonTreasure
 {
