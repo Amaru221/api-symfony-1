@@ -8,7 +8,15 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ApiResource(
-    description : "A rare and valuable treasure."
+    description : "A rare and valuable treasure.",
+    operations: [
+        new Get(),
+        new Post(),
+        new GetCollection(),
+        new Delete(),
+        new Put(),
+        new Patch(),
+    ]
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 class DragonTreasure
