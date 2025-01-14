@@ -17,9 +17,9 @@ use App\Repository\DragonTreasureRepository;
     shortName: "Treasure",
     description : "A rare and valuable treasure.",
     operations: [
-        new Get(uriTemplate: '/dragon-plunder/{id}'),
+        new Get(),
         new Post(),
-        new GetCollection(uriTemplate:'/dragon-plunder'),
+        new GetCollection(),
         new Delete(),
         new Put(),
         new Patch(),
