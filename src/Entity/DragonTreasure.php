@@ -85,6 +85,13 @@ class DragonTreasure
         return $this;
     }
 
+    public function setTextDescription(string $description): static
+    {
+        $this->description = nl2br($description);
+
+        return $this;
+    }
+
     public function getValue(): ?int
     {
         return $this->value;
