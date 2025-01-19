@@ -42,11 +42,11 @@ class DragonTreasure
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['treasure:read'])]
+    #[Groups(['treasure:read', 'treasure:write'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['treasure:read'])]
+    #[Groups(['treasure:read', 'treasure:write'])]
 
      /**
      * Undocumented variable
@@ -56,11 +56,11 @@ class DragonTreasure
     private ?string $description = null;
 
     #[ORM\Column]
-    #[Groups(['treasure:read'])]
+    #[Groups(['treasure:read', 'treasure:write'])]
     private ?int $value = null;
 
     #[ORM\Column]
-    #[Groups(['treasure:read'])]
+    #[Groups(['treasure:read', 'treasure:write'])]
     private ?int $coolFactor = null;
 
     #[ORM\Column]
