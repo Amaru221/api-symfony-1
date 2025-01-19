@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Carbon\Carbon;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Put;
 use ApiPlatform\Metadata\Post;
@@ -23,6 +24,9 @@ use App\Repository\DragonTreasureRepository;
         new Delete(),
         new Put(),
         new Patch(),
+    ],
+    normalizationContext: [
+        'groups' => ['treasure:read'],
     ]
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
