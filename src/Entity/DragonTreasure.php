@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use App\Repository\DragonTreasureRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ApiResource(
     shortName: "Treasure",
@@ -38,9 +39,12 @@ class DragonTreasure
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['treasure:read'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['treasure:read'])]
+
      /**
      * Undocumented variable
      *
@@ -49,9 +53,11 @@ class DragonTreasure
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Groups(['treasure:read'])]
     private ?int $value = null;
 
     #[ORM\Column]
+    #[Groups(['treasure:read'])]
     private ?int $coolFactor = null;
 
     #[ORM\Column]
