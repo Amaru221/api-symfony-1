@@ -141,18 +141,20 @@ class DragonTreasure
         return $this->plunderedAt;
     }
 
+    public function setPlunderedAt(DateTime $createdAt): static
+    {
+        $this->plunderedAt = $createdAt;
+
+        return $this;
+    }
+
     #[Groups(['treasure:read'])]
     public function getPlunderedAtAgo(): ? string
     {
         return Carbon::instance($this->plunderedAt)->diffForHumans();
     }
 
-    public function setPlunderedAtAgo(DateTime $createdAt): static
-    {
-        $this->plunderedAt = $createdAt;
-
-        return $this;
-    }
+    
 
     public function getIsPublished(): ?bool
     {
