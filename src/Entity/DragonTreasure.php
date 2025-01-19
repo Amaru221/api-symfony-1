@@ -126,12 +126,6 @@ class DragonTreasure
         return $this->plunderedAt;
     }
 
-    public function setPlunderedAt(\DateTimeImmutable $plunderedAt): static
-    {
-        $this->plunderedAt = $plunderedAt;
-
-        return $this;
-    }
 
     public function getIsPublished(): ?bool
     {
