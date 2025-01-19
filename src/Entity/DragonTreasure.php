@@ -68,7 +68,7 @@ class DragonTreasure
     private ?\DateTimeImmutable $plunderedAt = null;
 
     #[ORM\Column]
-    private ?bool $isPublished = null;
+    private ?bool $isPublished = false;
 
     public function __construct()
     {
