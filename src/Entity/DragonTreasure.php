@@ -28,6 +28,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
     ],
     normalizationContext: [
         'groups' => ['treasure:read'],
+    ],
+    denormalizationContext: [
+        'groups' => ['treasure:write'],
     ]
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
