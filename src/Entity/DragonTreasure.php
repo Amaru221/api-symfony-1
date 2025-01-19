@@ -126,6 +126,11 @@ class DragonTreasure
         return $this->plunderedAt;
     }
 
+    public function getPlunderedAtAgo(): ? string
+    {
+        return Carbon::instance($this->plunderedAt)->diffForHumans();
+    }
+
 
     public function getIsPublished(): ?bool
     {
