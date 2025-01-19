@@ -121,12 +121,12 @@ class DragonTreasure
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getPlunderedAt(): ?\DateTimeImmutable
     {
         return $this->plunderedAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $plunderedAt): static
+    public function setPlunderedAt(\DateTimeImmutable $plunderedAt): static
     {
         $this->plunderedAt = $plunderedAt;
 
