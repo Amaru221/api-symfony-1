@@ -103,6 +103,7 @@ class DragonTreasure
         return $this;
     }
 
+    #[Groups('treasure:write')]
     public function setTextDescription(string $description): static
     {
         $this->description = nl2br($description);
@@ -139,6 +140,7 @@ class DragonTreasure
         return $this->plunderedAt;
     }
 
+    #[Groups(['treasure:read'])]
     public function getPlunderedAtAgo(): ? string
     {
         return Carbon::instance($this->plunderedAt)->diffForHumans();
