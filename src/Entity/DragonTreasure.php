@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Carbon\Carbon;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Put;
@@ -146,6 +147,12 @@ class DragonTreasure
         return Carbon::instance($this->plunderedAt)->diffForHumans();
     }
 
+    public function setPlunderedAtAgo(DateTime $createdAt): static
+    {
+        $this->plunderedAt = $createdAt;
+
+        return $this;
+    }
 
     public function getIsPublished(): ?bool
     {
