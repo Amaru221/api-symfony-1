@@ -33,7 +33,9 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     ],
     denormalizationContext: [
         'groups' => ['treasure:write'],
-    ]
+    ],
+    paginationItemsPerPage: 10,
+    
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 class DragonTreasure
