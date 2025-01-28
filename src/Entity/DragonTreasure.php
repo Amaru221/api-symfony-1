@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use DateTime;
 use Carbon\Carbon;
 use ApiPlatform\Metadata\Get;
@@ -38,6 +40,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
+#[ApiFilter(BooleanFilter::class, properties: ['isPublished'])]
 class DragonTreasure
 {
     #[ORM\Id]
