@@ -17,6 +17,7 @@ use ApiPlatform\Metadata\GetCollection;
 use App\Repository\DragonTreasureRepository;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
+use ApiPlatform\Doctrine\Odm\Filter\RangeFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
@@ -62,11 +63,12 @@ class DragonTreasure
      *
      * @var integer|null
      */
-     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $description = null;
 
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
+    #[ApiFilter(RangeFilter::class)]
     private ?int $value = null;
 
     #[ORM\Column]
