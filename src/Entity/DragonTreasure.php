@@ -74,6 +74,7 @@ class DragonTreasure
     private ?\DateTimeImmutable $plunderedAt = null;
 
     #[ORM\Column]
+    #[ApiFilter(BooleanFilter::class)]
     private ?bool $isPublished = false;
 
     public function __construct(string $name = null)
