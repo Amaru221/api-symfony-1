@@ -126,6 +126,11 @@ class DragonTreasure
         return $this;
     }
 
+    public function getShortDescription(): ?string
+    {
+        return substr($this->description, 0, 100). '...';
+    }
+
     public function getValue(): ?int
     {
         return $this->value;
