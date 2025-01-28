@@ -15,9 +15,10 @@ use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use App\Repository\DragonTreasureRepository;
-use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
 use ApiPlatform\Doctrine\Odm\Filter\RangeFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Serializer\Filter\PropertyFilter;
+use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
@@ -42,7 +43,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
-#[ApiFilter(BooleanFilter::class, properties: ['isPublished'])]
+#[ApiFilter(PropertyFilter::class)]
 class DragonTreasure
 {
     #[ORM\Id]
