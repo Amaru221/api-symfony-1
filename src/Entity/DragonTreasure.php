@@ -126,6 +126,7 @@ class DragonTreasure
         return $this;
     }
 
+    #[Groups(['treasure:read'])]
     public function getShortDescription(): ?string
     {
         return substr($this->description, 0, 100). '...';
