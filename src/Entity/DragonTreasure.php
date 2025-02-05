@@ -60,7 +60,7 @@ class DragonTreasure
     private ?int $id = null;
 
     #[Assert\NotBlank]
-    #[Assert\length(min:2, max: 50, maxMessage: 'Describe your loot in 50 chars or less')]
+    #[Assert\Length(min:2, max: 50, maxMessage: 'Describe your loot in 50 chars or less')]
     #[ORM\Column(length: 255)]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
