@@ -40,6 +40,13 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
         'groups' => ['treasure:write'],
     ],
     paginationItemsPerPage: 10,
+    formats: [
+        'jsonld',
+        'json',
+        'html',
+        'csv' => 'text/csv',
+        'jsonhal'
+    ]
     
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
