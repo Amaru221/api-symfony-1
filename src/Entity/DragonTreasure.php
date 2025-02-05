@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use Carbon\Carbon;
+use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Put;
 use ApiPlatform\Metadata\Post;
@@ -58,6 +59,8 @@ class DragonTreasure
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\length(min:2, max: 50, maxMessage: 'Describe your loot in 50 chars or less')]
     #[ORM\Column(length: 255)]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
