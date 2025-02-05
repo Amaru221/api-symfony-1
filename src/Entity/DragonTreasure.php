@@ -74,14 +74,18 @@ class DragonTreasure
      *
      * @var integer|null
      */
+    #[Assert\NotBlank]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $description = null;
 
+    #[Assert\GreaterThanOrEqual(0)]
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(RangeFilter::class)]
     private ?int $value = null;
 
+    #[Assert\GreaterThanOrEqual(0)]
+    #[Assert\LessThanOrEqual(10)]
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
     private ?int $coolFactor = null;
