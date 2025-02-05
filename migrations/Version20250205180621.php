@@ -24,7 +24,6 @@ final class Version20250205180621 extends AbstractMigration
         $this->addSql('CREATE TABLE "user" (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, username VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649E7927C74 ON "user" (email)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649F85E0677 ON "user" (username)');
-        $this->addSql('ALTER TABLE dragon_treasure RENAME COLUMN created_at TO plundered_at');
     }
 
     public function down(Schema $schema): void
@@ -33,6 +32,5 @@ final class Version20250205180621 extends AbstractMigration
         $this->addSql('CREATE SCHEMA public');
         $this->addSql('DROP SEQUENCE "user_id_seq" CASCADE');
         $this->addSql('DROP TABLE "user"');
-        $this->addSql('ALTER TABLE dragon_treasure RENAME COLUMN plundered_at TO created_at');
     }
 }
