@@ -82,13 +82,13 @@ class DragonTreasure
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(RangeFilter::class)]
-    private ?int $value = null;
+    private ?int $value = 0;
 
     #[Assert\GreaterThanOrEqual(0)]
     #[Assert\LessThanOrEqual(10)]
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
-    private ?int $coolFactor = null;
+    private ?int $coolFactor = 0;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $plunderedAt = null;
