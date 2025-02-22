@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use DateTime;
 use Carbon\Carbon;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Metadata\Get;
@@ -20,6 +19,7 @@ use ApiPlatform\Doctrine\Odm\Filter\RangeFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Serializer\Filter\PropertyFilter;
 use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
+use DateTimeImmutable;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
@@ -176,7 +176,7 @@ class DragonTreasure
         return $this->plunderedAt;
     }
 
-    public function setPlunderedAt(DateTime $createdAt): static
+    public function setPlunderedAt(DateTimeImmutable $createdAt): static
     {
         $this->plunderedAt = $createdAt;
 
