@@ -97,6 +97,10 @@ class DragonTreasure
     #[ApiFilter(BooleanFilter::class)]
     private ?bool $isPublished = false;
 
+    #[ORM\ManyToOne(inversedBy: 'dragonTreasures')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?user $owner = null;
+
     public function __construct(string $name = null)
     {
         $this->name = $name;
@@ -199,6 +203,18 @@ class DragonTreasure
     public function setIsPublished(bool $isPublished): static
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getOwner(): ?user
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?user $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }
