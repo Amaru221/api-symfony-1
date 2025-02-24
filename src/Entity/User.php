@@ -17,12 +17,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Table(name: '`user`')]
 #[ApiResource(
     normalizationContext: [
-        'groups' => ['user:read'],
+        'groups' => ['user:read']
     ],
     denormalizationContext: [
         'groups' => ['user:write']
     ],
-    paginationItemsPerPage: 10,
 )]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 #[UniqueEntity(fields: ['username'], message: 'It looks like another dragon took your username. ROAR!')]
@@ -36,6 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     #[Groups('user:read', 'user:write')]
     #[Assert\NotBlank]
+    #[Assert\Email]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Groups('user:read', 'user:write')]
+    #[Groups('user:write')]
     private ?string $password = null;
 
     #[ORM\Column(length: 255, unique: true)]
@@ -70,7 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
-
+    #[Groups('user:write')]
     public function setEmail(string $email): static
     {
         $this->email = $email;
