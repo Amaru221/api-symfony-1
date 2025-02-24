@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    #[Groups('user:read', 'user:write')]
+    #[Groups(['user:read', 'user:write'])]
     #[Assert\NotBlank]
     #[Assert\Email]
     private ?string $email = null;
@@ -49,12 +49,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    #[Groups('user:read', 'user:write', 'treasure:item:get')]
+    #[Groups(['user:read', 'user:write', 'treasure:item:get'])]
     #[Assert\NotBlank]
     private ?string $username = null;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: DragonTreasure::class)]
-    #[Groups('user:read')]
+    #[Groups(['user:read'])]
     private Collection $dragonTreasures;
 
     public function __construct()
@@ -71,7 +71,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
-    #[Groups('user:write')]
     public function setEmail(string $email): static
     {
         $this->email = $email;
