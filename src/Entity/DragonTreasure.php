@@ -27,7 +27,11 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     shortName: "Treasure",
     description : "A rare and valuable treasure.",
     operations: [
-        new Get(),
+        new Get(
+            normalizationContext: [
+                'groups' => ['treasure:read', 'treasure:item:get'],
+            ]
+        ),
         new Post(),
         new GetCollection(),
         new Delete(),
