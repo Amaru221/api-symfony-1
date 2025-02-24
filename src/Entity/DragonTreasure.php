@@ -64,6 +64,7 @@ class DragonTreasure
     #[ORM\Column(length: 255)]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[Groups('user:read')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -82,6 +83,7 @@ class DragonTreasure
     #[ORM\Column]
     #[Groups(['treasure:read', 'treasure:write'])]
     #[ApiFilter(RangeFilter::class)]
+    #[Groups('user:read')]
     private ?int $value = 0;
 
     #[Assert\GreaterThanOrEqual(0)]
