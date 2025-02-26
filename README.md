@@ -1,8 +1,4 @@
-# API Platform 3! 🐉
-
-Well howdy! This repository holds the code and script
-for the [API Platform 3](https://symfonycasts.com/screencast/api-platform) on SymfonyCasts.
-
+# API Platform 3!🐉
 ## Setup
 
 If you've just downloaded the code, congratulations!!
