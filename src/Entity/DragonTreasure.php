@@ -142,7 +142,7 @@ class DragonTreasure
     }
 
     #[SerializedName('description')]
-    #[Groups('treasure:write')]
+    #[Groups(['treasure:write'])]
     public function setTextDescription(string $description): static
     {
         $this->description = nl2br($description);
