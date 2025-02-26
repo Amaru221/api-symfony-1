@@ -104,7 +104,6 @@ class DragonTreasure
     #[ORM\ManyToOne(inversedBy: 'dragonTreasures')]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['treasure:read', 'treasure:write'])]
-    #[ORM\Column(cascade: ['persist'])]
     private ?User $owner = null;
 
     public function __construct(string $name = null)
