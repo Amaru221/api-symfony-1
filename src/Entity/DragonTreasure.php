@@ -66,12 +66,12 @@ class DragonTreasure
     #[Assert\NotBlank]
     #[Assert\Length(min:2, max: 50, maxMessage: 'Describe your loot in 50 chars or less')]
     #[ORM\Column(length: 255)]
-    #[Groups(['treasure:read', 'treasure:write', 'user:read'])]
+    #[Groups(['treasure:read', 'treasure:write', 'user:read', 'user:write'])]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['treasure:read', 'treasure:write'])]
+    #[Groups(['treasure:read', 'treasure:write', 'user:read', 'user:write'])]
 
      /**
      * Undocumented variable
@@ -84,7 +84,7 @@ class DragonTreasure
 
     #[Assert\GreaterThanOrEqual(0)]
     #[ORM\Column]
-    #[Groups(['treasure:read', 'treasure:write', 'user:read'])]
+    #[Groups(['treasure:read', 'treasure:write', 'user:read', 'user:write'])]
     #[ApiFilter(RangeFilter::class)]
     private ?int $value = 0;
 
