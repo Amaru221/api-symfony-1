@@ -56,6 +56,9 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 #[ApiFilter(PropertyFilter::class)]
+#[ApiFilter(SearchFilter::class, properties: [
+    'owner.username' => 'partial'
+])]
 class DragonTreasure
 {
     #[ORM\Id]
