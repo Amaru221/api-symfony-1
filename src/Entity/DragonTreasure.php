@@ -54,6 +54,11 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     ]
     
 )]
+#[ApiResource(
+    uriTemplate: '/api/users/{user_id}/treasures.{_format}',
+    shortName: 'Treasure',
+    operations: [new GetCollection()]
+)]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 #[ApiFilter(PropertyFilter::class)]
 #[ApiFilter(SearchFilter::class, properties: [
