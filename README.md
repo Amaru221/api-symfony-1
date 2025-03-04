@@ -24,6 +24,16 @@ npm install
 ```
 - or yarn install
 
+### Compile assets
+For dev - Run:
+```
+npm run watch
+```
+
+For production - Run:
+```
+npm run build
+```
 ### Start the Symfony web server
 
 You can use Nginx or Apache, but Symfony's local web server
