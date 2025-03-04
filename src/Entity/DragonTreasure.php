@@ -56,12 +56,13 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
     
 )]
 #[ApiResource(
-    uriTemplate: '/api/users/{user_id}/treasures.{_format}',
+    uriTemplate: '/users/{user_id}/treasures.{_format}',
     shortName: 'Treasure',
     operations: [new GetCollection()],
     uriVariables: [
         'user_id' => new Link(
-
+            fromClass: User::class,
+            fromProperty: 'dragonTreasures'
         ),
     ]
 )]
