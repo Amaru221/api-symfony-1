@@ -25,6 +25,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
         'groups' => ['user:write']
     ],
 )]
+#[ApiResource(
+    uriTemplate: 'treasures/{treasure_id}/owner.{_format}',
+)]
 #[ApiFilter(PropertyFilter::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 #[UniqueEntity(fields: ['username'], message: 'It looks like another dragon took your username. ROAR!')]
