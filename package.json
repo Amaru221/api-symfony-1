@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@api-platform/admin": "^4.0.4",
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
         "@symfony/webpack-encore": "^5.0.0",
