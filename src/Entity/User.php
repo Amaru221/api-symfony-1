@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Link;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\Link;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Serializer\Filter\PropertyFilter;
@@ -33,7 +34,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
             fromClass: DragonTreasure::class,
             fromProperty: 'owner'
         )
-    ]
+        ],
+    operations: [new Get()]
 
 )]
 #[ApiFilter(PropertyFilter::class)]
