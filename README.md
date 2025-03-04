@@ -15,6 +15,15 @@ composer install
 You may alternatively need to run `php composer.phar install`, depending
 on how you installed Composer.
 
+### Install Assets
+Install the assets
+Run:
+
+```
+npm install 
+```
+- or yarn install
+
 ### Start the Symfony web server
 
 You can use Nginx or Apache, but Symfony's local web server
