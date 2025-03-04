@@ -19,6 +19,7 @@ use ApiPlatform\Doctrine\Orm\Filter\RangeFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Serializer\Filter\PropertyFilter;
 use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Metadata\Link;
 use DateTimeImmutable;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
@@ -57,7 +58,12 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 #[ApiResource(
     uriTemplate: '/api/users/{user_id}/treasures.{_format}',
     shortName: 'Treasure',
-    operations: [new GetCollection()]
+    operations: [new GetCollection()],
+    uriVariables: [
+        'user_id' => new Link(
+
+        ),
+    ]
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
 #[ApiFilter(PropertyFilter::class)]
