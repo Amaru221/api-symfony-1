@@ -64,6 +64,9 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
             fromClass: User::class,
             fromProperty: 'dragonTreasures'
         ),
+    ],
+    normalizationContext:[
+        'groups' => ['treasure:read'],
     ]
 )]
 #[ORM\Entity(repositoryClass: DragonTreasureRepository::class)]
