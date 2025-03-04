@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Link;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Serializer\Filter\PropertyFilter;
@@ -27,6 +28,13 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 )]
 #[ApiResource(
     uriTemplate: 'treasures/{treasure_id}/owner.{_format}',
+    uriVariables:[
+        'treasure_id' => new Link(
+            fromClass: DragonTreasure::class,
+            fromProperty: 'owner'
+        )
+    ]
+
 )]
 #[ApiFilter(PropertyFilter::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
