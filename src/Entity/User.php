@@ -35,7 +35,10 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
             fromProperty: 'owner'
         )
         ],
-    operations: [new Get()]
+    operations: [new Get()],
+    normalizationContext: [
+        'groups' => ['user:read']
+    ]
 
 )]
 #[ApiFilter(PropertyFilter::class)]
